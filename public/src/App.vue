@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <v-navigation-drawer persistent clipped v-model="drawer" enable-resize-watcher fixed app>
-      <v-list class="pa-3">
+      <v-list>
         <v-list-tile v-for="section in sections" :key="section.name" @click="$router.push(section.route)">
           <v-list-tile-action>
             <v-icon v-html="section.icon"/>
@@ -12,16 +12,19 @@
         </v-list-tile>
       </v-list>
     </v-navigation-drawer>
-    <v-toolbar app clipped-left>
+    <v-toolbar app color="primary" dark clipped-left>
       <v-toolbar-side-icon @click.stop="drawer = !drawer" />
       <v-toolbar-title v-text="'Green Village Project'" />
       <v-spacer />
-      <span>
-        <v-icon>person</v-icon> Hello there
-      </span>
+      <v-toolbar-items>
+        <v-btn flat>
+          <v-icon class="pr-2">person</v-icon>
+          <span>Putu</span>
+        </v-btn>
+      </v-toolbar-items>
     </v-toolbar>
     <v-content>
-      <router-view/>
+      <router-view />
     </v-content>
     <v-footer app>
       <span>MPH Bali &copy; 2018</span>

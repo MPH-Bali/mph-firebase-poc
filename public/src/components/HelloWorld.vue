@@ -4,6 +4,9 @@
       <v-layout column align-center>
         <!-- <img src="@/assets/logo.png" alt="Vuetify.js" class="mb-5"> -->
         <v-icon size="300px">fa-leaf</v-icon>
+        <pre>
+          {{ delivery }}
+        </pre>
         <blockquote>
           &#8220;First, solve the problem. Then, write the code.&#8221;
           <footer>
@@ -17,20 +20,18 @@
   </v-container>
 </template>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-h1, h2 {
-  font-weight: normal;
+<script>
+export default {
+  firestore () {
+    return {
+      delivery: this.$db.collection('delivery').orderBy('organic')
+    }
+  },
+  data () {
+    return {
+      delivery: []
+    }
+  }
 }
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
-</style>
+</script>
+
