@@ -1,0 +1,50 @@
+<template>
+  <v-app>
+    <v-navigation-drawer persistent clipped v-model="drawer" enable-resize-watcher fixed app>
+      <v-list class="pa-3">
+        <v-list-tile v-for="section in sections" :key="section.name" @click="$router.push(section.route)">
+          <v-list-tile-action>
+            <v-icon v-html="section.icon"/>
+          </v-list-tile-action>
+          <v-list-tile-content>
+            <v-list-tile-title :color="$route.path === section.route && 'primary'" v-text="section.name"/>
+          </v-list-tile-content>
+        </v-list-tile>
+      </v-list>
+    </v-navigation-drawer>
+    <v-toolbar app clipped-left>
+      <v-toolbar-side-icon @click.stop="drawer = !drawer" />
+      <v-toolbar-title v-text="'Green Village Project'" />
+      <v-spacer />
+      <span>
+        <v-icon>person</v-icon> Hello there
+      </span>
+    </v-toolbar>
+    <v-content>
+      <router-view/>
+    </v-content>
+    <v-footer app>
+      <span>MPH Bali &copy; 2018</span>
+    </v-footer>
+  </v-app>
+</template>
+
+<script>
+export default {
+  data () {
+    return {
+      sections: [
+        { name: 'Dashboard', icon: 'fa-tachometer-alt', route: '/dashboard' },
+        { name: 'Delivery', icon: 'fa-truck', route: '/delivery' },
+        { name: 'Sales', icon: 'fa-money-bill-alt', route: '/sales' },
+        { name: 'Compost', icon: 'fa-leaf', route: '/compost' },
+        { name: 'Material', icon: 'fa-archive', route: '/material' },
+        { name: 'EOD Report', icon: 'fa-chart-pie', route: '/eod' },
+        { name: 'Settings', icon: 'fa-cog', route: '/settings' }
+      ],
+      drawer: true
+    }
+  },
+  name: 'App'
+}
+</script>
