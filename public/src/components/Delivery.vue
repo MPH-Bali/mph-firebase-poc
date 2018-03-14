@@ -101,19 +101,28 @@
         }
       },
       edit (id) {
-        // ToDo
+        this.$db.collection('delivery').doc(id).get().then(doc => {
+          this.formData = { id: doc.id, ...doc.data() }
+        })
       },
       cancel () {
         this.formData = null
         this.showForm = false
       },
       save () {
-        // change for edit
-        this.$db.collection('delivery').add(this.formData)
+        if (this.formData.id) {
+          this.$db.collection('delivery').doc(this.formData.id).set({ ...this.formData })
+        } else {
+          this.$db.collection('delivery').add(this.formData)
+        }
         this.formData = null
       },
       remove (id) {
-        console.log('delete this', id || 'nope')
+        this.$db
+          .collection('delivery')
+          .doc(id)
+          .delete()
+          // .then(() => call toast or something)
       }
     },
     firestore () {
@@ -127,6 +136,7 @@
 
         return this.delivery.map(item => ({
           ...item,
+          id: item.id,
           value: false,
           total: item.organic + item.anorganic
         }))
