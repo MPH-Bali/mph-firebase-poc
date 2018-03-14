@@ -37,7 +37,7 @@ export default {
   data () {
     return {
       sections: [
-        { name: 'Dashboard', icon: 'fa-tachometer-alt', route: '/dashboard' },
+        { name: 'Dashboard', icon: 'fa-tachometer-alt', route: '/' },
         { name: 'Delivery', icon: 'fa-truck', route: '/delivery' },
         { name: 'Sales', icon: 'fa-money-bill-alt', route: '/sales' },
         { name: 'Compost', icon: 'fa-leaf', route: '/compost' },

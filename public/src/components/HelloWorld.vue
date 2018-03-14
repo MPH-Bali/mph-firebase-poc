@@ -3,7 +3,7 @@
     <v-slide-y-transition mode="out-in">
       <v-layout column align-center>
         <!-- <img src="@/assets/logo.png" alt="Vuetify.js" class="mb-5"> -->
-        <v-icon size="300px">fa-leaf</v-icon>
+        <v-icon color="accent" size="300px">fa-leaf</v-icon>
         <pre>
           {{ delivery }}
         </pre>
@@ -22,6 +22,13 @@
 
 <script>
 export default {
+  created () {
+    this.$db
+      .collection('delivery')
+      .onSnapshot(snapshot => snapshot.forEach(doc => {
+        console.log({ id: doc.id, ...doc.data() })
+      }))
+  },
   firestore () {
     return {
       delivery: this.$db.collection('delivery').orderBy('organic')

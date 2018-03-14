@@ -2,8 +2,9 @@
 import Vue from 'vue'
 import App from './App'
 import Router from 'vue-router'
-import Vuetify from 'vuetify'
 import moment from 'vue-moment'
+import Vuetify from 'vuetify'
+import colors from 'vuetify/es5/util/colors'
 import 'vuetify/dist/vuetify.min.css'
 
 // Firebase stuff
@@ -25,18 +26,13 @@ firebase.initializeApp({
 
 Vue.prototype.$db = firebase.firestore()
 
-Vue.use(Vuetify)
-// Vue.use(Vuetify, {
-//   theme: {
-//     primary: '#ee44aa',
-//     secondary: '#424242',
-//     accent: '#82B1FF',
-//     error: '#FF5252',
-//     info: '#2196F3',
-//     success: '#4CAF50',
-//     warning: '#FFC107'
-//   }
-// })
+Vue.use(Vuetify, {
+  theme: {
+    primary: colors.teal.darken3,
+    secondary: colors.grey.darken3,
+    accent: colors.lime.lighten1
+  }
+})
 
 Vue.config.productionTip = false
 
@@ -44,6 +40,7 @@ Vue.config.productionTip = false
 new Vue({
   el: '#app',
   router: new Router({
+    mode: 'history',
     routes: [
       { path: '/', name: 'HelloWorld', component: HelloWorld },
       { path: '/delivery', name: 'Delivery', component: Delivery }
