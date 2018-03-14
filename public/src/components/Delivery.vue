@@ -138,7 +138,7 @@
           ...item,
           id: item.id,
           value: false,
-          total: item.organic + item.anorganic
+          total: parseInt(item.organic) + parseInt(item.anorganic)
         }))
       }
     },
