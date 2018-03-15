@@ -12,7 +12,7 @@
         </v-list-tile>
       </v-list>
     </v-navigation-drawer>
-    <v-toolbar app color="primary" dark clipped-left>
+    <v-toolbar flat app color="primary" dark clipped-left>
       <v-toolbar-side-icon @click.stop="drawer = !drawer" />
       <v-toolbar-title v-text="'Green Village Project'" />
       <v-spacer />
