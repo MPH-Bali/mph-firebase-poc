@@ -11,10 +11,11 @@ import 'vuetify/dist/vuetify.min.css'
 import VueFire from 'vuefire'
 import firebase from 'firebase/app'
 import 'firebase/firestore'
+import store from './store'
 
 // Routes
-import HelloWorld from '@/components/HelloWorld'
-import Delivery from '@/components/Delivery'
+import DailyLog from '@/components/DailyLog'
+import DeliveryForm from '@/components/DeliveryForm'
 
 Vue.use(Router)
 Vue.use(moment)
@@ -39,11 +40,12 @@ Vue.config.productionTip = false
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
+  store: store,
   router: new Router({
     mode: 'history',
     routes: [
-      { path: '/', name: 'HelloWorld', component: HelloWorld },
-      { path: '/delivery', name: 'Delivery', component: Delivery }
+      { path: '/', name: 'Daily Log', component: DailyLog },
+      { path: '/delivery-form/:id?', name: 'DeliveryForm', component: DeliveryForm }
     ]
   }),
   components: { App },
