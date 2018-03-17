@@ -19,7 +19,20 @@
       <daily-log-header action="/delivery-form" title="Delivery" />
       <delivery-table :formData="formData" :items="items" />
 
+      <daily-log-header class="mt-4" action="/delivery-form" title="Material Kg" />
+      <delivery-table :formData="formData" :items="items" />
 
+      <daily-log-header class="mt-4" action="/delivery-form" title="Stock Kg" />
+      <delivery-table :formData="formData" :items="items" />
+
+      <daily-log-header class="mt-4" action="/delivery-form" title="Sales IDR" />
+      <delivery-table :formData="formData" :items="items" />
+
+      <daily-log-header class="mt-4" action="/delivery-form" title="Expenses IDR" />
+      <delivery-table :formData="formData" :items="items" />
+
+      <daily-log-header class="mt-4" action="/delivery-form" title="Workers Hours" />
+      <delivery-table :formData="formData" :items="items" />
     </v-flex>
   </v-layout>
 </template>

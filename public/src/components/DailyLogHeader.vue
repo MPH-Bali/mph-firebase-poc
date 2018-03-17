@@ -1,6 +1,6 @@
 <template>
   <v-layout row mb-3>
-    <v-flex pt-2 pl-3>
+    <v-flex pt-3 pl-3>
       <p class="title">{{ title }}</p>
     </v-flex>
     <v-flex text-xs-right>
