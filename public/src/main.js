@@ -29,7 +29,7 @@ Vue.prototype.$db = firebase.firestore()
 Vue.use(Vuetify, {
   theme: {
     primary: '#42853d',
-    secondary: colors.grey.darken3,
+    secondary: '#f7f7f7',
     accent: colors.lime.lighten1
   }
 })
